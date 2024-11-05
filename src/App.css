@@ -1,0 +1,279 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #eef2f3;
+}
+
+/* Main Layout */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Header Styles */
+header {
+  background-color: #4a90e2;
+  color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.menu-icon {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropbtn {
+  background-color: #4a90e2;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background 0.3s;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: #3e80c6;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  min-width: 160px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 5px;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+/* Contact & Notification Section */
+#contact-notification-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+#contact-section, #notification-section {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+}
+
+
+/* Contact Section */
+#contact-section h2 {
+  margin: 0 0 15px;
+  color: #4a90e2;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#contact-section input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+
+#contact-section button {
+  background-color: #4a90e2;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+#contact-section button:hover {
+  background-color: #3e80c6;
+}
+
+#contact-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+  width: 100%;
+}
+
+#contact-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+#contact-list li button {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+#contact-list li button:hover {
+  background-color: #c0392b;
+}
+
+/* Notification Section */
+#notification-section h2 {
+  margin: 0 0 15px;
+  color: #4a90e2;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#notification-box {
+  border: 1px solid #ffeb3b;
+  padding: 15px;
+  background-color: #fff3cd;
+  border-radius: 5px;
+  text-align: center;
+}
+
+#notification-box p {
+  margin: 0 0 10px;
+}
+
+#notification-box button {
+  margin: 5px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background 0.3s;
+}
+
+#accept-notification {
+  background-color: #008000; /* Green color */
+  color: white;
+}
+
+#accept-notification:hover {
+  background-color: #006400;
+}
+
+#decline-notification {
+  background-color: #ffcccc; /* Light red color */
+  color: #333;
+}
+
+#decline-notification:hover {
+  background-color: #ff9999;
+}
+
+#response-info {
+  margin-top: 15px;
+  text-align: center;
+}
+
+#response-info p {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Map Section */
+#map-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px 0;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  #contact-notification-section {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  #contact-section, #notification-section {
+    max-width: 100%;
+  }
+
+  header h1 {
+    font-size: 1.5rem;
+  }
+
+  #contact-section h2, #notification-section h2 {
+    font-size: 1.3rem;
+  }
+
+  #contact-list li {
+    font-size: 0.9rem;
+  }
+}
