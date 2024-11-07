@@ -11,7 +11,7 @@ function App() {
     useEffect(() => {
         const fetchCrashData = async () => {
             try {
-                const response = await fetch('https://n17cnnt1cl.execute-api.ap-south-1.amazonaws.com/prod/crashdata');
+                const response = await fetch('https://n17cnnt1cl.execute-api.ap-south-1.amazonaws.com/prod/crashdata);
                 const data = await response.json();
                 setCrashData(data);
             } catch (error) {
