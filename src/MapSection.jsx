@@ -20,27 +20,32 @@ const MapSection = ({ crashData }) => {
         if (crashData && crashData.payload) {
             const { latitude, longitude } = crashData.payload;
 
-            // If the coordinates have changed, move the marker
-            if (
-                lastCoordinates.latitude !== latitude ||
-                lastCoordinates.longitude !== longitude
-            ) {
-                if (markerRef.current) {
-                    // If there's an existing marker, remove it
-                    mapRef.current.removeLayer(markerRef.current);
+            // Ensure latitude and longitude are defined and are numbers
+            if (latitude != null && longitude != null && !isNaN(latitude) && !isNaN(longitude)) {
+                // If the coordinates have changed, move the marker
+                if (
+                    lastCoordinates.latitude !== latitude ||
+                    lastCoordinates.longitude !== longitude
+                ) {
+                    if (markerRef.current) {
+                        // If there's an existing marker, remove it
+                        mapRef.current.removeLayer(markerRef.current);
+                    }
+
+                    // Create a new marker at the start position
+                    markerRef.current = L.marker([lastCoordinates.latitude || latitude, lastCoordinates.longitude || longitude])
+                        .addTo(mapRef.current)
+                        .bindPopup(`<b>Location of Crash</b><br>Latitude: ${latitude}<br>Longitude: ${longitude}`)
+                        .openPopup();
+
+                    // Smooth transition: move the marker slowly in steps
+                    moveMarkerSlowly(lastCoordinates.latitude || latitude, lastCoordinates.longitude || longitude, latitude, longitude);
+
+                    // Update the last coordinates after moving
+                    setLastCoordinates({ latitude, longitude });
                 }
-
-                // Create a new marker at the start position
-                markerRef.current = L.marker([lastCoordinates.latitude || latitude, lastCoordinates.longitude || longitude])
-                    .addTo(mapRef.current)
-                    .bindPopup(`<b>Location of Crash</b><br>Latitude: ${latitude}<br>Longitude: ${longitude}`)
-                    .openPopup();
-
-                // Smooth transition: move the marker slowly in steps
-                moveMarkerSlowly(lastCoordinates.latitude || latitude, lastCoordinates.longitude || longitude, latitude, longitude);
-
-                // Update the last coordinates after moving
-                setLastCoordinates({ latitude, longitude });
+            } else {
+                console.warn("Invalid latitude or longitude in crashData payload:", { latitude, longitude });
             }
         }
     }, [crashData, lastCoordinates]);
